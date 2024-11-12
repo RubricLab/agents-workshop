@@ -9,7 +9,7 @@ import {
   getLocationSchema,
   getWeather,
   getWeatherSchema,
-} from "./tools";
+} from "../tools";
 import zodToJsonSchema from "zod-to-json-schema";
 
 dotenv.config();
