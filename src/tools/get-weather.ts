@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const getWeatherSchema = z.object({
-  latitude: z.string(),
-  longitude: z.string(),
+  latitude: z.string().describe("Latitude of location"),
+  longitude: z.string().describe("Longitude of location"),
 });
 
 type getWeatherProps = z.infer<typeof getWeatherSchema>;

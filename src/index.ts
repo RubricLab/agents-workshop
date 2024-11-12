@@ -7,6 +7,8 @@ import {
 import {
   getLocation,
   getLocationSchema,
+  getNearbyPlaces,
+  getNearbyPlacesSchema,
   getWeather,
   getWeatherSchema,
 } from "./tools";
@@ -41,9 +43,17 @@ const tools: ChatCompletionTool[] = [
       parameters: zodToJsonSchema(getWeatherSchema),
     },
   },
+  {
+    type: "function",
+    function: {
+      name: "getNearbyPlaces",
+      description: "Get nearby places based on latitude and longitude",
+      parameters: zodToJsonSchema(getNearbyPlacesSchema),
+    },
+  },
 ];
 
-const availableTools = { getLocation, getWeather };
+const availableTools = { getLocation, getWeather, getNearbyPlaces };
 
 const runAgent = async (input: string) => {
   messages.push({ role: "user", content: input });
@@ -96,4 +106,4 @@ const runAgent = async (input: string) => {
   }
 };
 
-runAgent("Hello, what is the weather today?");
+runAgent("Hello, what museums can I visit?");

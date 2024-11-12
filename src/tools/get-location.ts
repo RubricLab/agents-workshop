@@ -7,6 +7,6 @@ export const getLocation = async () => {
 
   const locationData = await response.json();
 
-  //   return { latitude: 43.6585, longitude: 79.3576 };
+  // return { latitude: 43.6585, longitude: -79.3576 };
   return locationData;
 };
